@@ -2,9 +2,11 @@
 <ActiveObjectClass>
 	<Id>1776879532567</Id>
 	<Name><![CDATA[UAV]]></Name>
-	<StartupCode><![CDATA[java.util.Arrays.fill(varCellLastSenseTime, -1.0);
-setSpeed( Math.max( 0.1, varSpeed ) );
-fnMoveToRandomWaypoint();]]></StartupCode>
+	<StartupCode><![CDATA[setSpeed(100);
+double _sx = uniform(110, 890);
+double _sy = uniform(110, 490);
+moveTo(_sx, _sy);
+traceln("UAV[" + getIndex() + "] START pos=(" + (int)getX() + "," + (int)getY() + ") -> (" + (int)_sx + "," + (int)_sy + ") spd=" + getSpeed());]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
 		<Id>1776879532572</Id>
@@ -364,7 +366,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 					<Code><![CDATA[0.1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
 				</Timeout>
-				<Condition>varScanPending</Condition>
+				<Condition>true</Condition>
 				<Rate Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="RateUnits">PER_SECOND</Unit>

@@ -48,8 +48,8 @@
 			<Unit Class="TimeUnits">SECOND</Unit>
 		</StepDurationCode>
 		<SpaceType>CONTINUOUS</SpaceType>
-		<WidthCode>500</WidthCode>
-		<HeightCode>500</HeightCode>
+		<WidthCode>1000</WidthCode>
+		<HeightCode>1000</HeightCode>
 		<ZHeightCode>0</ZHeightCode>
 		<ColumnsCountCode>100</ColumnsCountCode>
 		<RowsCountCode>100</RowsCountCode>
