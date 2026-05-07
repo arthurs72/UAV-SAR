@@ -84,7 +84,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[0.02]]></Code>
+				<Code><![CDATA[0.05]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -304,7 +304,7 @@
               StaticVariable="false">
 			<Type><![CDATA[int]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[12]]></Code>
+				<Code><![CDATA[24]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -326,7 +326,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[120]]></Code>
+				<Code><![CDATA[100]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -348,7 +348,29 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[80]]></Code>
+				<Code><![CDATA[180]]></Code>
+			</InitialValue>
+		</Properties>
+	</Variable>
+	<Variable Class="PlainVariable">
+		<Id>1779000001105</Id>
+		<Name><![CDATA[varAcoMinUavSeparation]]></Name>
+		<X>20</X>
+		<Y>460</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Properties SaveInSnapshot="true"
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
+			<Type><![CDATA[double]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[200]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -370,7 +392,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[7]]></Code>
+				<Code><![CDATA[1]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -480,7 +502,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[1.0]]></Code>
+				<Code><![CDATA[2.0]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -524,7 +546,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[2.0]]></Code>
+				<Code><![CDATA[4.0]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -611,6 +633,9 @@
               AccessType="public"
               StaticVariable="false">
 			<Type><![CDATA[int]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[0]]></Code>
+			</InitialValue>
 		</Properties>
 	</Variable>
 </Variables>

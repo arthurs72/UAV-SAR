@@ -10,7 +10,39 @@
 		<JavaPackageName><![CDATA[uav_sar]]></JavaPackageName>
 		<ModelTimeUnit>Second</ModelTimeUnit>
 		<Folders/>
-		<ActiveObjectClasses/>
+		<ActiveObjectClasses>
+			<ActiveObjectClass>
+				<Id>1776879373659</Id>
+				<Name><![CDATA[Main]]></Name>
+				<StartupCode><![CDATA[fnPlaceVictimsGMM();
+for (UAV u : uavs) {
+	u.varUseAcoMove = varUseAcoMoveDefault;
+	u.varAcoCandidateCount = varAcoCandidateCountDefault;
+	u.varAcoStepLength = varAcoStepLengthDefault;
+	u.varAcoUavAvoidRadius = varAcoUavAvoidRadiusDefault;
+	u.varAcoMinUavSeparation = varAcoMinUavSeparationDefault;
+	u.varUavPushRate = varUavPushRateDefault;
+	u.varRandomWeight = varRandomWeightDefault;
+	u.varSensorRange = varSensorRangeDefault;
+	u.varBeliefStaleSeconds = varBeliefStaleSecondsDefault;
+}
+for (UAV u : uavs) {
+	u.varDesiredHeadingDeg = uniform(0, 360);
+}]]></StartupCode>
+				<Generic>false</Generic>
+				<GenericParameter>
+					<Id>1776879373664</Id>
+					<Name><![CDATA[1776879373664]]></Name>
+					<GenericParameterValue Class="CodeValue">
+						<Code><![CDATA[T extends Agent]]></Code>
+					</GenericParameterValue>
+					<GenericParameterLabel>Generic parameter:</GenericParameterLabel>
+				</GenericParameter>
+			</ActiveObjectClass>
+			<!-- The remaining ActiveObjectClass entries are provided by the split _alp files and
+				 are also present in the backup UAV-SAR.original.alp. Restoring the Main entry
+				 resolves the ActiveObjectClassId reference used by RunConfiguration/Experiments. -->
+		</ActiveObjectClasses>
 		<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
 		<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
 		<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>

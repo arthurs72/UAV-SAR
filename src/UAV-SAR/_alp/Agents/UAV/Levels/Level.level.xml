@@ -37,8 +37,8 @@
 			<Image>
 				<Id>1776880590130</Id>
 				<Name><![CDATA[image]]></Name>
-				<X>-62.043</X>
-				<Y>-28.962</Y>
+				<X>-36</X>
+				<Y>-20</Y>
 				<Label>
 					<X>0</X>
 					<Y>-10</Y>
@@ -49,8 +49,8 @@
 				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 				<EmbeddedIcon>false</EmbeddedIcon>
 				<Z>0</Z>
-				<Width>54.625</Width>
-				<Height>54.999</Height>
+				<Width>32</Width>
+				<Height>32</Height>
 				<Rotation>0.0</Rotation>
 				<ImageFiles>
 					<ImageResourceReference>
@@ -162,7 +162,7 @@
 				<Closed>false</Closed>
 			</Curve>
 			<Text>
-				<Id>1779000002001</Id>
+				<Id>1779000002101</Id>
 				<Name><![CDATA[confidenceText]]></Name>
 				<X>-30</X>
 				<Y>40</Y>
@@ -178,7 +178,7 @@
 				<Z>0</Z>
 				<Rotation>0.0</Rotation>
 				<Color>-16777216</Color>
-				<Text><![CDATA[]]></Text>
+				<Text/>
 				<Font>
 					<Name><![CDATA[SansSerif]]></Name>
 					<Size>10</Size>

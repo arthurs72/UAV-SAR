@@ -2,7 +2,21 @@
 <ActiveObjectClass>
 	<Id>1776879373659</Id>
 	<Name><![CDATA[Main]]></Name>
-	<StartupCode><![CDATA[fnPlaceVictimsGMM();]]></StartupCode>
+	<StartupCode><![CDATA[fnPlaceVictimsGMM();
+for (UAV u : uavs) {
+	u.varUseAcoMove = varUseAcoMoveDefault;
+	u.varAcoCandidateCount = varAcoCandidateCountDefault;
+	u.varAcoStepLength = varAcoStepLengthDefault;
+	u.varAcoUavAvoidRadius = varAcoUavAvoidRadiusDefault;
+	u.varAcoMinUavSeparation = varAcoMinUavSeparationDefault;
+	u.varUavPushRate = varUavPushRateDefault;
+	u.varRandomWeight = varRandomWeightDefault;
+	u.varSensorRange = varSensorRangeDefault;
+	u.varBeliefStaleSeconds = varBeliefStaleSecondsDefault;
+}
+for (UAV u : uavs) {
+	u.varDesiredHeadingDeg = uniform(0, 360);
+}]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
 		<Id>1776879373664</Id>
@@ -48,7 +62,7 @@
 			<Unit Class="TimeUnits">SECOND</Unit>
 		</StepDurationCode>
 		<SpaceType>CONTINUOUS</SpaceType>
-		<WidthCode>500</WidthCode>
+		<WidthCode>1000</WidthCode>
 		<HeightCode>500</HeightCode>
 		<ZHeightCode>0</ZHeightCode>
 		<ColumnsCountCode>100</ColumnsCountCode>
@@ -79,7 +93,7 @@
 		<Id>1776879373662</Id>
 		<Name><![CDATA[scale]]></Name>
 		<X>0</X>
-		<Y>-150</Y>
+		<Y>-130</Y>
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>false</PresentationFlag>
 		<ShowLabel>false</ShowLabel>

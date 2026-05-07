@@ -20,8 +20,8 @@
 			<Curve ControlPoints="true">
 				<Id>1777022364722</Id>
 				<Name><![CDATA[shapeBody]]></Name>
-				<X>-15.537</X>
-				<Y>-54.589</Y>
+				<X>-9.322</X>
+				<Y>-32.753</Y>
 				<Label>
 					<X>-20</X>
 					<Y>28</Y>
@@ -34,14 +34,14 @@
 				<Z>0</Z>
 				<ZHeight>10</ZHeight>
 				<LineWidth>1</LineWidth>
-				<LineColor/>
+				<LineColor>-65536</LineColor>
 				<LineMaterial>null</LineMaterial>
 				<LineStyle>SOLID</LineStyle>
 				<BeginArrowSize>1</BeginArrowSize>
 				<BeginArrowStyle>0</BeginArrowStyle>
 				<EndArrowSize>1</EndArrowSize>
 				<EndArrowStyle>0</EndArrowStyle>
-				<FillColor>-16777216</FillColor>
+				<FillColor>-65536</FillColor>
 				<FillMaterial>null</FillMaterial>
 				<Points>
 					<Point>
@@ -51,117 +51,117 @@
 					</Point>
 					<Point>
 						<X>0</X>
-						<Y>31.194</Y>
+						<Y>18.716</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>23.305</X>
-						<Y>15.597</Y>
+						<X>13.983</X>
+						<Y>9.358</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>-7.768</X>
-						<Y>23.395</Y>
+						<X>-4.661</X>
+						<Y>14.037</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>-15.537</X>
-						<Y>23.395</Y>
+						<X>-9.322</X>
+						<Y>14.037</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>-15.537</X>
-						<Y>77.984</Y>
+						<X>-9.322</X>
+						<Y>46.79</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>-15.537</X>
-						<Y>85.783</Y>
-						<Z>0</Z>
-					</Point>
-					<Point>
-						<X>0</X>
-						<Y>85.783</Y>
-						<Z>0</Z>
-					</Point>
-					<Point>
-						<X>-7.768</X>
-						<Y>70.186</Y>
+						<X>-9.322</X>
+						<Y>51.47</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
 						<X>0</X>
-						<Y>132.573</Y>
+						<Y>51.47</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>7.768</X>
-						<Y>132.573</Y>
+						<X>-4.661</X>
+						<Y>42.112</Y>
+						<Z>0</Z>
+					</Point>
+					<Point>
+						<X>0</X>
+						<Y>79.544</Y>
+						<Z>0</Z>
+					</Point>
+					<Point>
+						<X>4.661</X>
+						<Y>79.544</Y>
+						<Z>0</Z>
+					</Point>
+					<Point>
+						<X>13.983</X>
+						<Y>79.544</Y>
+						<Z>0</Z>
+					</Point>
+					<Point>
+						<X>18.644</X>
+						<Y>79.544</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
 						<X>23.305</X>
-						<Y>132.573</Y>
+						<Y>42.112</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>31.073</X>
-						<Y>132.573</Y>
+						<X>18.644</X>
+						<Y>51.47</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>38.841</X>
-						<Y>70.186</Y>
+						<X>27.966</X>
+						<Y>51.47</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>31.073</X>
-						<Y>85.783</Y>
+						<X>27.966</X>
+						<Y>46.79</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>46.61</X>
-						<Y>85.783</Y>
+						<X>27.966</X>
+						<Y>14.037</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>46.61</X>
-						<Y>77.984</Y>
+						<X>23.305</X>
+						<Y>14.037</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>46.61</X>
-						<Y>23.395</Y>
+						<X>4.661</X>
+						<Y>9.358</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>38.841</X>
-						<Y>23.395</Y>
+						<X>18.644</X>
+						<Y>18.716</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>7.768</X>
-						<Y>15.597</Y>
-						<Z>0</Z>
-					</Point>
-					<Point>
-						<X>31.073</X>
-						<Y>31.194</Y>
-						<Z>0</Z>
-					</Point>
-					<Point>
-						<X>31.073</X>
+						<X>18.644</X>
 						<Y>0</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
-						<X>31.073</X>
-						<Y>-23.395</Y>
+						<X>18.644</X>
+						<Y>-14.037</Y>
 						<Z>0</Z>
 					</Point>
 					<Point>
 						<X>0</X>
-						<Y>-23.395</Y>
+						<Y>-14.037</Y>
 						<Z>0</Z>
 					</Point>
 				</Points>
