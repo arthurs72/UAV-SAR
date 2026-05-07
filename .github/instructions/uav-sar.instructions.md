@@ -1,12 +1,7 @@
 ---
 name: "UAV-SAR AnyLogic Implementation"
 description: "Use when implementing UAV-SAR model logic, AnyLogic state behaviour, experiment configs, sensitivity sweeps, and reproducible CSV outputs."
-applyTo:
-  - "src/UAV-SAR/**"
-  - "config/**/*.json"
-  - "data/**/*.csv"
-  - "analysis/**/*.ipynb"
-  - "tests/**"
+applyTo: "src/UAV-SAR/**, config/**/*.json, data/**/*.csv, analysis/**/*.ipynb, tests/**"
 ---
 
 # UAV-SAR Implementation Instructions

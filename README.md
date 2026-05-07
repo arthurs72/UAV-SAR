@@ -74,6 +74,12 @@ Notes:
 - Simulation experiment stop option is `Never`; stop manually when needed.
 - Experiment uses fixed seed (`500000`) for baseline reproducibility.
 
+Tuning (quick experiment knobs):
+- In the Main agent Variables, adjust: 
+  `varUseAcoMoveDefault`, `varAcoCandidateCountDefault`,
+  `varAcoStepLengthDefault`, `varAcoUavAvoidRadiusDefault`, `varUavPushRateDefault`,
+  `varRandomWeightDefault`, `varSensorRangeDefault`, `varBeliefStaleSecondsDefault`.
+
 ---
 
 ## Key Config And Data Paths
