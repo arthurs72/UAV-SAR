@@ -44,3 +44,10 @@ data/sweeps/
 # Temporary extracted/preview files used during analysis
 docs/*_page*.png
 docs/*.txt
+
+# Local recovery/debug artifacts (do not commit)
+backups/
+tools/
+UAV-SAR-fixed.alpx
+src/UAV-SAR/UAV-SAR-fixed.alpx
+src/UAV-SAR/UAV-SAR - Backup_working080526.alpx
