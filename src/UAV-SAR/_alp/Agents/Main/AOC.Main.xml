@@ -13,9 +13,8 @@ for (UAV u : uavs) {
 	u.varRandomWeight = varRandomWeightDefault;
 	u.varSensorRange = varSensorRangeDefault;
 	u.varBeliefStaleSeconds = varBeliefStaleSecondsDefault;
-}
-for (UAV u : uavs) {
 	u.varDesiredHeadingDeg = uniform(0, 360);
+	u.fnMoveToRandomWaypoint();
 }]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
