@@ -4,7 +4,10 @@
 	<Name><![CDATA[UAV]]></Name>
 	<StartupCode><![CDATA[setSpeed(Math.max(0.1, varSpeed));
 fnMoveToRandomWaypoint();
-traceln("UAV[" + getIndex() + "] START pos=(" + (int)getX() + "," + (int)getY() + ") speed=" + getSpeed());]]></StartupCode>
+traceln("UAV[" + getIndex() + "] START pos=(" + (int)getX() + "," + (int)getY() + ") speed=" + getSpeed());
+// diagnostic: force a tiny move to confirm movement scheduling
+double _nx = Math.min(getX() + 30, getX() + 30);
+moveTo(_nx, getY(), Math.max(0.1, varSpeed));]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
 		<Id>1776879532572</Id>
