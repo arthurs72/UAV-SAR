@@ -46,6 +46,13 @@
 				<PackageName>com.anylogic.libraries.modules.markup_descriptors</PackageName>
 				<ClassName>AreaNodeDescriptor</ClassName>
 			</ActiveObjectClass>
+			<GenericParameterSubstitute>
+				<GenericParameterSubstituteReference>
+					<PackageName>com.anylogic.libraries.modules.markup_descriptors</PackageName>
+					<ClassName>AreaNodeDescriptor</ClassName>
+					<ItemName>1574694148121</ItemName>
+				</GenericParameterSubstituteReference>
+			</GenericParameterSubstitute>
 			<Parameters>
 				<Parameter>
 					<Name><![CDATA[appliedClass]]></Name>
