@@ -2,12 +2,11 @@
 <ActiveObjectClass>
 	<Id>1776879532567</Id>
 	<Name><![CDATA[UAV]]></Name>
-	<StartupCode><![CDATA[setSpeed(Math.max(0.1, varSpeed));
-fnMoveToRandomWaypoint();
-traceln("UAV[" + getIndex() + "] START pos=(" + (int)getX() + "," + (int)getY() + ") speed=" + getSpeed());
-// diagnostic: force a tiny move to confirm movement scheduling
-double _nx = Math.min(getX() + 30, getX() + 30);
-moveTo(_nx, getY(), Math.max(0.1, varSpeed));]]></StartupCode>
+	<StartupCode><![CDATA[setSpeed(100);
+double _sx = uniform(110, 890);
+double _sy = uniform(110, 490);
+moveTo(_sx, _sy);
+traceln("UAV[" + getIndex() + "] START pos=(" + (int)getX() + "," + (int)getY() + ") -> (" + (int)_sx + "," + (int)_sy + ") spd=" + getSpeed());]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
 		<Id>1776879532572</Id>
