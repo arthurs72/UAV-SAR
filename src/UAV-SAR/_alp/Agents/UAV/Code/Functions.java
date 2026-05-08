@@ -1,5 +1,6 @@
 void fnMoveToRandomWaypoint()
 {/*ALCODESTART::1778000001001*/
+	traceln("UAV[" + getIndex() + "] fnMoveToRandomWaypoint() called at t=" + time());
 double margin = 10;
 double minX = 100 + margin;
 double maxX = 900 - margin;
@@ -51,6 +52,7 @@ varDesiredHeadingDeg = Math.toDegrees(Math.atan2(y - getY(), x - getX()));
 
 void fnMoveToAcoWaypoint()
 {/*ALCODESTART::1778000001005*/
+	traceln("UAV[" + getIndex() + "] fnMoveToAcoWaypoint() called at t=" + time());
 double margin = 10;
 double minX = 100 + margin;
 double maxX = 900 - margin;
@@ -181,6 +183,7 @@ varDesiredHeadingDeg = Math.toDegrees(bestAngle);
 
 void onArrival()
 {/*ALCODESTART::1778000001002*/
+	traceln("UAV[" + getIndex() + "] onArrival() called at t=" + time());
 fnSenseIfOutdated();
 if (varUseAcoMove) {
 	fnMoveToAcoWaypoint();
