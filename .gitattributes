@@ -1,20 +1,4 @@
-* text=auto eol=lf
-
-*.alp  text eol=lf
-*.alpx text eol=lf
-*.xml  text eol=lf
-*.java text eol=lf
-*.md   text eol=lf
-*.txt  text eol=lf
-*.csv  text eol=lf
-*.json text eol=lf
-*.properties text eol=lf
-
-# AnyLogic generated Java files MUST have CRLF.
-# AnyLogic detects LF-only endings as an external modification and regenerates
-# the file from scratch, wiping all function bodies. This rule overrides the
-# generic *.java rule above (last match wins in .gitattributes).
-src/UAV-SAR/_alp/**/*.java text eol=crlf
+* text=auto eol=crlf
 
 *.png  binary
 *.jpg  binary

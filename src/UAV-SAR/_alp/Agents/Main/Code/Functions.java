@@ -1,4 +1,4 @@
-void fnPlaceVictimsGMM()
+﻿void fnPlaceVictimsGMM()
 {/*ALCODESTART::1777049001651*/
 int nClusters = Math.max(1, varNClusters);
 double margin = Math.max(0, varGmmMargin);

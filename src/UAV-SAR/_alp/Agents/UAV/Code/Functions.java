@@ -1,4 +1,4 @@
-void fnMoveToRandomWaypoint()
+﻿void fnMoveToRandomWaypoint()
 {/*ALCODESTART::1778000001001*/
 double margin = 10;
 double minX = 100 + margin;
