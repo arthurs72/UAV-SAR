@@ -1,4 +1,4 @@
-﻿void fnPlaceVictimsGMM()
+void fnPlaceVictimsGMM()
 {/*ALCODESTART::1777049001651*/
 int nClusters = Math.max(1, varNClusters);
 double margin = Math.max(0, varGmmMargin);
@@ -92,14 +92,14 @@ for (Victims v : victims) {
 
 double fnGetPheromone(int idx)
 {/*ALCODESTART::1780000004001*/
-if (idx < 0 || idx >= 200) return 0.0;
+if (idx < 0 || idx >= varGridCols * varGridRows) return 0.0;
 double age = Math.max(0, time() - varPheromoneTime[idx]);
 return varPheromoneGrid[idx] * Math.exp(-varPheromoneEvapRate * age);
 /*ALCODEEND*/}
 
 void fnDepositPheromone(int idx,double amount)
 {/*ALCODESTART::1780000004002*/
-if (idx < 0 || idx >= 200) return;
+if (idx < 0 || idx >= varGridCols * varGridRows) return;
 double age = Math.max(0, time() - varPheromoneTime[idx]);
 double current = varPheromoneGrid[idx] * Math.exp(-varPheromoneEvapRate * age);
 varPheromoneGrid[idx] = current + amount;

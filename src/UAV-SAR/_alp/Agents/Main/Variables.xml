@@ -291,6 +291,116 @@
 		</Properties>
 	</Variable>
 	<Variable Class="PlainVariable">
+		<Id>1778310544608</Id>
+		<Name><![CDATA[varGridCols]]></Name>
+		<X>30</X>
+		<Y>880</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Properties SaveInSnapshot="true"
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
+			<Type><![CDATA[int]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[45]]></Code>
+			</InitialValue>
+		</Properties>
+	</Variable>
+	<Variable Class="PlainVariable">
+		<Id>1778310544610</Id>
+		<Name><![CDATA[varGridRows]]></Name>
+		<X>30</X>
+		<Y>900</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Properties SaveInSnapshot="true"
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
+			<Type><![CDATA[int]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[25]]></Code>
+			</InitialValue>
+		</Properties>
+	</Variable>
+	<Variable Class="PlainVariable">
+		<Id>1778310544612</Id>
+		<Name><![CDATA[varGridCellSize]]></Name>
+		<X>30</X>
+		<Y>920</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Properties SaveInSnapshot="true"
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
+			<Type><![CDATA[double]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[20.0]]></Code>
+			</InitialValue>
+		</Properties>
+	</Variable>
+	<Variable Class="PlainVariable">
+		<Id>1778310544614</Id>
+		<Name><![CDATA[varGridOriginX]]></Name>
+		<X>30</X>
+		<Y>940</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Properties SaveInSnapshot="true"
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
+			<Type><![CDATA[double]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[50.0]]></Code>
+			</InitialValue>
+		</Properties>
+	</Variable>
+	<Variable Class="PlainVariable">
+		<Id>1778310850420</Id>
+		<Name><![CDATA[varGridOriginY]]></Name>
+		<X>30</X>
+		<Y>960</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>false</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>true</ShowLabel>
+		<Properties SaveInSnapshot="true"
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
+			<Type><![CDATA[double]]></Type>
+			<InitialValue Class="CodeValue">
+				<Code><![CDATA[50.0]]></Code>
+			</InitialValue>
+		</Properties>
+	</Variable>
+	<Variable Class="PlainVariable">
 		<Id>1780000004010</Id>
 		<Name><![CDATA[varPheromoneGrid]]></Name>
 		<X>510</X>
@@ -308,7 +418,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double[]]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[new double[200]]]></Code>
+				<Code><![CDATA[new double[varGridCols * varGridRows]]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -330,7 +440,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double[]]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[new double[200]]]></Code>
+				<Code><![CDATA[new double[varGridCols * varGridRows]]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
@@ -352,7 +462,7 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-				<Code><![CDATA[0.05]]></Code>
+				<Code><![CDATA[0.1]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>

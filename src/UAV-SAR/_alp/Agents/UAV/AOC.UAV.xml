@@ -2,8 +2,7 @@
 <ActiveObjectClass>
 	<Id>1776879532567</Id>
 	<Name><![CDATA[UAV]]></Name>
-	<StartupCode><![CDATA[setSpeed( Math.max( 0.1, varSpeed ) );
-fnMoveToRandomWaypoint();]]></StartupCode>
+	<StartupCode><![CDATA[setSpeed(varSpeed); ]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
 		<Id>1776879532572</Id>
@@ -29,6 +28,12 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<Code><![CDATA[10]]></Code>
 			<Unit Class="SpeedUnits">MPS</Unit>
 		</VelocityCode>
+		<OnArrival>if (varExploring) {
+    fnPickWaypoint();
+    moveTo(varCandX[varChosenIdx], varCandY[varChosenIdx], varSpeed);
+} else if (varMovingToCharger) {
+    varMovingToCharger = false;
+}</OnArrival>
 		<PhysicalLength Class="CodeUnitValue">
 			<Code><![CDATA[1]]></Code>
 			<Unit Class="LengthUnits">METER</Unit>
@@ -80,7 +85,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<Id>1776879532570</Id>
 		<Name><![CDATA[scale]]></Name>
 		<X>0</X>
-		<Y>-150</Y>
+		<Y>-170</Y>
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>false</PresentationFlag>
 		<ShowLabel>false</ShowLabel>
@@ -101,7 +106,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<Id>1776879999910</Id>
 			<Name><![CDATA[Explore]]></Name>
 			<X>150</X>
-			<Y>150</Y>
+			<Y>90</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -110,14 +115,16 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="300" Height="300">
-				<FillColor/>
+				<EntryAction>varExploring = true;
+moveTo(varCandX[varChosenIdx], varCandY[varChosenIdx], varSpeed);</EntryAction>
+				<FillColor>0</FillColor>
 			</Properties>
 		</StatechartElement>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1776880023728</Id>
 			<Name><![CDATA[Exploit]]></Name>
 			<X>550</X>
-			<Y>150</Y>
+			<Y>90</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -126,14 +133,17 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="300" Height="300">
-				<FillColor/>
+				<EntryAction>varExploring = false;
+setSpeed(varSpeed);
+moveTo(varTargetX, varTargetY);</EntryAction>
+				<FillColor>0</FillColor>
 			</Properties>
 		</StatechartElement>
-		<StatechartElement Class="State" ParentState="Explore" ParentStateId="1776879999910">
-			<Id>1776880228954</Id>
-			<Name><![CDATA[AcoPush]]></Name>
-			<X>250</X>
-			<Y>220</Y>
+		<StatechartElement Class="State" ParentState="ROOT_NODE">
+			<Id>1778334562841</Id>
+			<Name><![CDATA[ChargingStation]]></Name>
+			<X>400</X>
+			<Y>410</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -141,15 +151,17 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<PublicFlag>false</PublicFlag>
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
-			<Properties Width="100" Height="30">
-				<FillColor/>
+			<Properties Width="200" Height="170">
+				<FillColor>0</FillColor>
 			</Properties>
 		</StatechartElement>
-		<StatechartElement Class="State" ParentState="Exploit" ParentStateId="1776880023728">
-			<Id>1776880244591</Id>
-			<Name><![CDATA[AcoPull]]></Name>
-			<X>650</X>
-			<Y>220</Y>
+		<StatechartElement Class="State"
+                     ParentState="ChargingStation"
+                     ParentStateId="1778334562841">
+			<Id>1778334608116</Id>
+			<Name><![CDATA[MovingToCharger]]></Name>
+			<X>430</X>
+			<Y>460</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -157,15 +169,21 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<PublicFlag>false</PublicFlag>
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
-			<Properties Width="100" Height="30">
-				<FillColor/>
+			<Properties Width="140" Height="30">
+				<EntryAction>varExploring = false;
+varMovingToCharger = true;
+setSpeed(varSpeed);
+moveTo(880, 460, varSpeed);</EntryAction>
+				<FillColor>0</FillColor>
 			</Properties>
 		</StatechartElement>
-		<StatechartElement Class="State" ParentState="Explore" ParentStateId="1776879999910">
-			<Id>1780000002001</Id>
-			<Name><![CDATA[Scan]]></Name>
-			<X>250</X>
-			<Y>290</Y>
+		<StatechartElement Class="State"
+                     ParentState="ChargingStation"
+                     ParentStateId="1778334562841">
+			<Id>1778334676253</Id>
+			<Name><![CDATA[Charging]]></Name>
+			<X>430</X>
+			<Y>520</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -173,15 +191,16 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<PublicFlag>false</PublicFlag>
 			<PresentationFlag>true</PresentationFlag>
 			<ShowLabel>true</ShowLabel>
-			<Properties Width="100" Height="30">
-				<FillColor/>
+			<Properties Width="140" Height="30">
+				<EntryAction>varCharging = true;</EntryAction>
+				<FillColor>0</FillColor>
 			</Properties>
 		</StatechartElement>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1776880064943</Id>
 			<Name><![CDATA[toExploitIfDetected]]></Name>
 			<X>450</X>
-			<Y>250</Y>
+			<Y>190</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -200,12 +219,12 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 				</Point>
 			</Points>
 			<IconOffset>20.0</IconOffset>
-			<Properties Source="1776879999910" Target="1776880023728" Trigger="timeout">
+			<Properties Source="1776879999910" Target="1776880023728" Trigger="condition">
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
 				</Timeout>
-				<Condition>(varBatteryLevel &gt; varReturnBatteryThreshold) &amp;&amp; (varTargetConfidence &gt;= varDetectionThreshold)</Condition>
+				<Condition>varTargetConfidence &gt;= varDetectionThreshold</Condition>
 				<Rate Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="RateUnits">PER_SECOND</Unit>
@@ -221,7 +240,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<Id>1776880073206</Id>
 			<Name><![CDATA[toExploreIfLowBatteryOrLostTarget]]></Name>
 			<X>550</X>
-			<Y>350</Y>
+			<Y>290</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -240,12 +259,14 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 				</Point>
 			</Points>
 			<IconOffset>20.0</IconOffset>
-			<Properties Source="1776880023728" Target="1776879999910" Trigger="timeout">
+			<Properties Source="1776880023728" Target="1776879999910" Trigger="condition">
+				<Action>fnPickWaypoint(); 
+moveTo(varCandX[varChosenIdx], varCandY[varChosenIdx], varSpeed);</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
 				</Timeout>
-				<Condition>(varBatteryLevel &lt;= varReturnBatteryThreshold) || (varTargetConfidence &lt; varDetectionThreshold)</Condition>
+				<Condition>varTargetConfidence &lt; varDetectionThreshold</Condition>
 				<Rate Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="RateUnits">PER_SECOND</Unit>
@@ -261,7 +282,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			<Id>1776880203347</Id>
 			<Name><![CDATA[Init]]></Name>
 			<X>300</X>
-			<Y>120</Y>
+			<Y>60</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -279,15 +300,15 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 					<Y>30</Y>
 				</Point>
 			</Points>
-			<Properties Target="1776879999910"/>
+			<Properties Target="1776879999910">
+				<Action>fnPickWaypoint();</Action>
+			</Properties>
 		</StatechartElement>
-		<StatechartElement Class="InitialStatePointer"
-                     ParentState="Explore"
-                     ParentStateId="1776879999910">
-			<Id>1776880358091</Id>
-			<Name><![CDATA[initialState]]></Name>
-			<X>300</X>
-			<Y>180</Y>
+		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+			<Id>1778330839515</Id>
+			<Name><![CDATA[transition]]></Name>
+			<X>250</X>
+			<Y>390</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -302,86 +323,104 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 				</Point>
 				<Point>
 					<X>0</X>
-					<Y>40</Y>
-				</Point>
-			</Points>
-			<Properties Target="1776880228954"/>
-		</StatechartElement>
-		<StatechartElement Class="InitialStatePointer"
-                     ParentState="Exploit"
-                     ParentStateId="1776880023728">
-			<Id>1776880365171</Id>
-			<Name><![CDATA[initialState1]]></Name>
-			<X>700</X>
-			<Y>180</Y>
-			<Label>
-				<X>10</X>
-				<Y>0</Y>
-			</Label>
-			<PublicFlag>false</PublicFlag>
-			<PresentationFlag>true</PresentationFlag>
-			<ShowLabel>false</ShowLabel>
-			<Points>
-				<Point>
-					<X>0</X>
-					<Y>0</Y>
+					<Y>50</Y>
 				</Point>
 				<Point>
-					<X>0</X>
-					<Y>40</Y>
-				</Point>
-			</Points>
-			<Properties Target="1776880244591"/>
-		</StatechartElement>
-		<StatechartElement Class="Transition"
-                     ParentState="Explore"
-                     ParentStateId="1776879999910">
-			<Id>1780000002002</Id>
-			<Name><![CDATA[toScanOnArrival]]></Name>
-			<X>270</X>
-			<Y>250</Y>
-			<Label>
-				<X>10</X>
-				<Y>0</Y>
-			</Label>
-			<PublicFlag>false</PublicFlag>
-			<PresentationFlag>true</PresentationFlag>
-			<ShowLabel>false</ShowLabel>
-			<Points>
-				<Point>
-					<X>0</X>
-					<Y>0</Y>
+					<X>-148</X>
+					<Y>51</Y>
 				</Point>
 				<Point>
-					<X>0</X>
-					<Y>40</Y>
+					<X>-149</X>
+					<Y>-151</Y>
+				</Point>
+				<Point>
+					<X>-100</X>
+					<Y>-150</Y>
 				</Point>
 			</Points>
 			<IconOffset>20.0</IconOffset>
-			<Properties Source="1776880228954" Target="1780000002001" Trigger="timeout">
+			<Properties Source="1776879999910" Target="1776879999910" Trigger="rate">
+				<Action>fnSenseNow();
+fnSenseNowGrid();
+varBatteryLevel = Math.max(0, varBatteryLevel - varBatteryDepletionRate * 0.5);
+batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
 				<Timeout Class="CodeUnitValue">
-					<Code><![CDATA[0.1]]></Code>
+					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
 				</Timeout>
 				<Condition>true</Condition>
 				<Rate Class="CodeUnitValue">
-					<Code><![CDATA[1]]></Code>
+					<Code><![CDATA[2]]></Code>
 					<Unit Class="RateUnits">PER_SECOND</Unit>
 				</Rate>
 				<MessageType>Object</MessageType>
-				<DefaultTransition>false</DefaultTransition>
+				<DefaultTransition>true</DefaultTransition>
 				<FilterType>unconditionally</FilterType>
 				<EqualsExpression>"text"</EqualsExpression>
 				<SatisfiesExpression>true</SatisfiesExpression>
 			</Properties>
 		</StatechartElement>
 		<StatechartElement Class="Transition"
-                     ParentState="Explore"
-                     ParentStateId="1776879999910">
-			<Id>1780000002003</Id>
-			<Name><![CDATA[toMoveAfterScan]]></Name>
-			<X>330</X>
-			<Y>290</Y>
+                     ParentState="ChargingStation"
+                     ParentStateId="1778334562841">
+			<Id>1778335025700</Id>
+			<Name><![CDATA[transition1]]></Name>
+			<X>430</X>
+			<Y>475</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>-10</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>-10</X>
+					<Y>-40</Y>
+				</Point>
+				<Point>
+					<X>20</X>
+					<Y>-40</Y>
+				</Point>
+				<Point>
+					<X>20</X>
+					<Y>-15</Y>
+				</Point>
+			</Points>
+			<IconOffset>20.0</IconOffset>
+			<Properties Source="1778334608116" Target="1778334608116" Trigger="rate">
+				<Action>varBatteryLevel = Math.max(0, varBatteryLevel - varBatteryDepletionRate * 0.5);
+batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
+				<Timeout Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="TimeUnits">SECOND</Unit>
+				</Timeout>
+				<Condition>true</Condition>
+				<Rate Class="CodeUnitValue">
+					<Code><![CDATA[2]]></Code>
+					<Unit Class="RateUnits">PER_SECOND</Unit>
+				</Rate>
+				<MessageType>Object</MessageType>
+				<DefaultTransition>true</DefaultTransition>
+				<FilterType>unconditionally</FilterType>
+				<EqualsExpression>"text"</EqualsExpression>
+				<SatisfiesExpression>true</SatisfiesExpression>
+			</Properties>
+		</StatechartElement>
+		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+			<Id>1778335121030</Id>
+			<Name><![CDATA[transition2]]></Name>
+			<X>700</X>
+			<Y>390</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -396,16 +435,291 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 				</Point>
 				<Point>
 					<X>0</X>
-					<Y>-40</Y>
+					<Y>50</Y>
+				</Point>
+				<Point>
+					<X>200</X>
+					<Y>50</Y>
+				</Point>
+				<Point>
+					<X>200</X>
+					<Y>-150</Y>
+				</Point>
+				<Point>
+					<X>150</X>
+					<Y>-150</Y>
 				</Point>
 			</Points>
 			<IconOffset>20.0</IconOffset>
-			<Properties Source="1780000002001" Target="1776880228954" Trigger="timeout">
+			<Properties Source="1776880023728" Target="1776880023728" Trigger="rate">
+				<Action>varBatteryLevel = Math.max(0, varBatteryLevel - varBatteryDepletionRate * 0.5);
+batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
 				<Timeout Class="CodeUnitValue">
-					<Code><![CDATA[varScanDuration]]></Code>
+					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
 				</Timeout>
 				<Condition>true</Condition>
+				<Rate Class="CodeUnitValue">
+					<Code><![CDATA[2]]></Code>
+					<Unit Class="RateUnits">PER_SECOND</Unit>
+				</Rate>
+				<MessageType>Object</MessageType>
+				<DefaultTransition>true</DefaultTransition>
+				<FilterType>unconditionally</FilterType>
+				<EqualsExpression>"text"</EqualsExpression>
+				<SatisfiesExpression>true</SatisfiesExpression>
+			</Properties>
+		</StatechartElement>
+		<StatechartElement Class="Transition"
+                     ParentState="ChargingStation"
+                     ParentStateId="1778334562841">
+			<Id>1778335188336</Id>
+			<Name><![CDATA[transition3]]></Name>
+			<X>430</X>
+			<Y>540</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>-10</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>-10</X>
+					<Y>-40</Y>
+				</Point>
+				<Point>
+					<X>20</X>
+					<Y>-40</Y>
+				</Point>
+				<Point>
+					<X>20</X>
+					<Y>-20</Y>
+				</Point>
+			</Points>
+			<IconOffset>20.0</IconOffset>
+			<Properties Source="1778334676253" Target="1778334676253" Trigger="rate">
+				<Action>varBatteryLevel = Math.min(100, varBatteryLevel + varChargingRate * 0.5);
+batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
+				<Timeout Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="TimeUnits">SECOND</Unit>
+				</Timeout>
+				<Condition>true</Condition>
+				<Rate Class="CodeUnitValue">
+					<Code><![CDATA[2]]></Code>
+					<Unit Class="RateUnits">PER_SECOND</Unit>
+				</Rate>
+				<MessageType>Object</MessageType>
+				<DefaultTransition>true</DefaultTransition>
+				<FilterType>unconditionally</FilterType>
+				<EqualsExpression>"text"</EqualsExpression>
+				<SatisfiesExpression>true</SatisfiesExpression>
+			</Properties>
+		</StatechartElement>
+		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+			<Id>1778335221719</Id>
+			<Name><![CDATA[transition4]]></Name>
+			<X>330</X>
+			<Y>390</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>0</X>
+					<Y>109</Y>
+				</Point>
+				<Point>
+					<X>70</X>
+					<Y>110</Y>
+				</Point>
+			</Points>
+			<IconOffset>20.0</IconOffset>
+			<Properties Source="1776879999910" Target="1778334562841" Trigger="condition">
+				<Timeout Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="TimeUnits">SECOND</Unit>
+				</Timeout>
+				<Condition>varBatteryLevel &lt; varReturnBatteryThreshold</Condition>
+				<Rate Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="RateUnits">PER_SECOND</Unit>
+				</Rate>
+				<MessageType>Object</MessageType>
+				<DefaultTransition>true</DefaultTransition>
+				<FilterType>unconditionally</FilterType>
+				<EqualsExpression>"text"</EqualsExpression>
+				<SatisfiesExpression>true</SatisfiesExpression>
+			</Properties>
+		</StatechartElement>
+		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+			<Id>1778335235971</Id>
+			<Name><![CDATA[transition5]]></Name>
+			<X>670</X>
+			<Y>390</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>0</X>
+					<Y>110</Y>
+				</Point>
+				<Point>
+					<X>-70</X>
+					<Y>110</Y>
+				</Point>
+			</Points>
+			<IconOffset>20.0</IconOffset>
+			<Properties Source="1776880023728" Target="1778334562841" Trigger="condition">
+				<Timeout Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="TimeUnits">SECOND</Unit>
+				</Timeout>
+				<Condition>varBatteryLevel &lt; varReturnBatteryThreshold</Condition>
+				<Rate Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="RateUnits">PER_SECOND</Unit>
+				</Rate>
+				<MessageType>Object</MessageType>
+				<DefaultTransition>true</DefaultTransition>
+				<FilterType>unconditionally</FilterType>
+				<EqualsExpression>"text"</EqualsExpression>
+				<SatisfiesExpression>true</SatisfiesExpression>
+			</Properties>
+		</StatechartElement>
+		<StatechartElement Class="InitialStatePointer"
+                     ParentState="ChargingStation"
+                     ParentStateId="1778334562841">
+			<Id>1778335298703</Id>
+			<Name><![CDATA[initialState]]></Name>
+			<X>500</X>
+			<Y>430</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>0</X>
+					<Y>30</Y>
+				</Point>
+			</Points>
+			<Properties Target="1778334608116"/>
+		</StatechartElement>
+		<StatechartElement Class="Transition"
+                     ParentState="ChargingStation"
+                     ParentStateId="1778334562841">
+			<Id>1778335315508</Id>
+			<Name><![CDATA[transition6]]></Name>
+			<X>500</X>
+			<Y>490</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>0</X>
+					<Y>30</Y>
+				</Point>
+			</Points>
+			<IconOffset>20.0</IconOffset>
+			<Properties Source="1778334608116" Target="1778334676253" Trigger="condition">
+				<Timeout Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="TimeUnits">SECOND</Unit>
+				</Timeout>
+				<Condition>!varMovingToCharger</Condition>
+				<Rate Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="RateUnits">PER_SECOND</Unit>
+				</Rate>
+				<MessageType>Object</MessageType>
+				<DefaultTransition>true</DefaultTransition>
+				<FilterType>unconditionally</FilterType>
+				<EqualsExpression>"text"</EqualsExpression>
+				<SatisfiesExpression>true</SatisfiesExpression>
+			</Properties>
+		</StatechartElement>
+		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
+			<Id>1778335345430</Id>
+			<Name><![CDATA[transition7]]></Name>
+			<X>500</X>
+			<Y>580</Y>
+			<Label>
+				<X>10</X>
+				<Y>0</Y>
+			</Label>
+			<PublicFlag>false</PublicFlag>
+			<PresentationFlag>true</PresentationFlag>
+			<ShowLabel>false</ShowLabel>
+			<Points>
+				<Point>
+					<X>0</X>
+					<Y>0</Y>
+				</Point>
+				<Point>
+					<X>0</X>
+					<Y>10</Y>
+				</Point>
+				<Point>
+					<X>-210</X>
+					<Y>10</Y>
+				</Point>
+				<Point>
+					<X>-210</X>
+					<Y>-190</Y>
+				</Point>
+			</Points>
+			<IconOffset>20.0</IconOffset>
+			<Properties Source="1778334562841" Target="1776879999910" Trigger="condition">
+				<Action>varCharging = false; fnPickWaypoint();</Action>
+				<Timeout Class="CodeUnitValue">
+					<Code><![CDATA[1]]></Code>
+					<Unit Class="TimeUnits">SECOND</Unit>
+				</Timeout>
+				<Condition>varBatteryLevel &gt;= 100</Condition>
 				<Rate Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="RateUnits">PER_SECOND</Unit>
@@ -418,13 +732,14 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 			</Properties>
 		</StatechartElement>
 	</StatechartElements>
+	<Events xmlns:al="http://anylogic.com"/>
 	<Functions xmlns:al="http://anylogic.com"/>
 	<AgentLinks>
 		<AgentLink>
 			<Id>1776879532568</Id>
 			<Name><![CDATA[connections]]></Name>
-			<X>130</X>
-			<Y>-100</Y>
+			<X>100</X>
+			<Y>-120</Y>
 			<Label>
 				<X>15</X>
 				<Y>0</Y>
@@ -453,8 +768,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<ContainerLink>
 			<Id>1776961987923</Id>
 			<Name><![CDATA[main]]></Name>
-			<X>50</X>
-			<Y>-100</Y>
+			<X>20</X>
+			<Y>-120</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>

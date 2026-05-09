@@ -1,198 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Presentation>
-	<Group>
-		<Id>1776961577518</Id>
-		<Name><![CDATA[group]]></Name>
-		<X>0</X>
-		<Y>0</Y>
+	<Canvas>
+		<Id>1778320141115</Id>
+		<Name><![CDATA[fovCanvas]]></Name>
+		<X>-150</X>
+		<Y>-150</Y>
 		<Label>
-			<X>5.69</X>
-			<Y>0</Y>
+			<X>0</X>
+			<Y>-10</Y>
 		</Label>
 		<PublicFlag>true</PublicFlag>
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>false</ShowLabel>
 		<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 		<EmbeddedIcon>false</EmbeddedIcon>
-		<Z>0</Z>
-		<Rotation>0.0</Rotation>
-	</Group>
-	<Group>
-		<Id>1777048455091</Id>
-		<Name><![CDATA[group1]]></Name>
-		<X>0</X>
-		<Y>0</Y>
-		<Label>
-			<X>6.313</X>
-			<Y>0</Y>
-		</Label>
-		<PublicFlag>true</PublicFlag>
-		<PresentationFlag>true</PresentationFlag>
-		<ShowLabel>false</ShowLabel>
-		<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-		<EmbeddedIcon>false</EmbeddedIcon>
-		<Z>0</Z>
-		<Rotation>0.0</Rotation>
-		<Presentation>
-			<Image>
-				<Id>1776880590130</Id>
-				<Name><![CDATA[image]]></Name>
-				<X>-36</X>
-				<Y>-20</Y>
-				<Label>
-					<X>0</X>
-					<Y>-10</Y>
-				</Label>
-				<PublicFlag>true</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>false</ShowLabel>
-				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-				<EmbeddedIcon>false</EmbeddedIcon>
-				<Z>0</Z>
-				<Width>32</Width>
-				<Height>32</Height>
-				<Rotation>0.0</Rotation>
-				<ImageFiles>
-					<ImageResourceReference>
-						<PackageName>uav_sar</PackageName>
-						<ClassName>drone.png</ClassName>
-					</ImageResourceReference>
-				</ImageFiles>
-				<OriginalSize>false</OriginalSize>
-			</Image>
-			<Line>
-				<Id>1776880656016</Id>
-				<Name><![CDATA[line]]></Name>
-				<X>-18.386</X>
-				<Y>-17.962</Y>
-				<Label>
-					<X>10</X>
-					<Y>0</Y>
-				</Label>
-				<PublicFlag>true</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>false</ShowLabel>
-				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-				<EmbeddedIcon>false</EmbeddedIcon>
-				<Z>0</Z>
-				<ZHeight>10</ZHeight>
-				<LineWidth>1</LineWidth>
-				<LineColor>-10496</LineColor>
-				<LineMaterial>null</LineMaterial>
-				<LineStyle>SOLID</LineStyle>
-				<BeginArrowSize>1</BeginArrowSize>
-				<BeginArrowStyle>0</BeginArrowStyle>
-				<EndArrowSize>1</EndArrowSize>
-				<EndArrowStyle>0</EndArrowStyle>
-				<Dx>62</Dx>
-				<Dy>-65</Dy>
-				<Dz>0</Dz>
-			</Line>
-			<Line>
-				<Id>1776880679914</Id>
-				<Name><![CDATA[line1]]></Name>
-				<X>-18.386</X>
-				<Y>15.038</Y>
-				<Label>
-					<X>10</X>
-					<Y>0</Y>
-				</Label>
-				<PublicFlag>true</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>false</ShowLabel>
-				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-				<EmbeddedIcon>false</EmbeddedIcon>
-				<Z>0</Z>
-				<ZHeight>10</ZHeight>
-				<LineWidth>1</LineWidth>
-				<LineColor>-10496</LineColor>
-				<LineMaterial>null</LineMaterial>
-				<LineStyle>SOLID</LineStyle>
-				<BeginArrowSize>1</BeginArrowSize>
-				<BeginArrowStyle>0</BeginArrowStyle>
-				<EndArrowSize>1</EndArrowSize>
-				<EndArrowStyle>0</EndArrowStyle>
-				<Dx>62</Dx>
-				<Dy>63</Dy>
-				<Dz>0</Dz>
-			</Line>
-			<Curve ControlPoints="false">
-				<Id>1776880694994</Id>
-				<Name><![CDATA[curve]]></Name>
-				<X>44.192</X>
-				<Y>-82.184</Y>
-				<Label>
-					<X>10</X>
-					<Y>0</Y>
-				</Label>
-				<PublicFlag>true</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>false</ShowLabel>
-				<DrawMode>SHAPE_DRAW_2D</DrawMode>
-				<EmbeddedIcon>false</EmbeddedIcon>
-				<Z>0</Z>
-				<ZHeight>10</ZHeight>
-				<LineWidth>1</LineWidth>
-				<LineColor>-10496</LineColor>
-				<LineMaterial>null</LineMaterial>
-				<LineStyle>SOLID</LineStyle>
-				<BeginArrowSize>1</BeginArrowSize>
-				<BeginArrowStyle>0</BeginArrowStyle>
-				<EndArrowSize>1</EndArrowSize>
-				<EndArrowStyle>0</EndArrowStyle>
-				<FillColor/>
-				<FillMaterial>null</FillMaterial>
-				<Points>
-					<Point>
-						<X>0</X>
-						<Y>0</Y>
-						<Z>0</Z>
-					</Point>
-					<Point>
-						<X>15.783</X>
-						<Y>82.184</Y>
-						<Z>0</Z>
-					</Point>
-					<Point>
-						<X>0</X>
-						<Y>161.207</Y>
-						<Z>0</Z>
-					</Point>
-				</Points>
-				<Closed>false</Closed>
-			</Curve>
-			<Text>
-				<Id>1779000002101</Id>
-				<Name><![CDATA[confidenceText]]></Name>
-				<X>-30</X>
-				<Y>40</Y>
-				<Label>
-					<X>10</X>
-					<Y>0</Y>
-				</Label>
-				<PublicFlag>true</PublicFlag>
-				<PresentationFlag>true</PresentationFlag>
-				<ShowLabel>false</ShowLabel>
-				<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
-				<EmbeddedIcon>false</EmbeddedIcon>
-				<Z>0</Z>
-				<Rotation>0.0</Rotation>
-				<Color>-16777216</Color>
-				<Text/>
-				<Font>
-					<Name><![CDATA[SansSerif]]></Name>
-					<Size>10</Size>
-					<Style>0</Style>
-				</Font>
-				<Alignment>LEFT</Alignment>
-			</Text>
-		</Presentation>
-	</Group>
+		<Width>300</Width>
+		<Height>300</Height>
+		<Rotation>0</Rotation>
+	</Canvas>
 	<Text>
 		<Id>1778243658801</Id>
 		<Name><![CDATA[text]]></Name>
-		<X>260</X>
-		<Y>840</Y>
+		<X>250</X>
+		<Y>640</Y>
 		<Label>
 			<X>0</X>
 			<Y>-10</Y>
@@ -289,31 +119,6 @@
 		<Alignment>LEFT</Alignment>
 	</Text>
 	<Text>
-		<Id>1778244053683</Id>
-		<Name><![CDATA[text4]]></Name>
-		<X>260</X>
-		<Y>640</Y>
-		<Label>
-			<X>0</X>
-			<Y>-10</Y>
-		</Label>
-		<PublicFlag>false</PublicFlag>
-		<PresentationFlag>true</PresentationFlag>
-		<ShowLabel>false</ShowLabel>
-		<DrawMode>SHAPE_DRAW_2D</DrawMode>
-		<EmbeddedIcon>false</EmbeddedIcon>
-		<Z>0</Z>
-		<Rotation>0.0</Rotation>
-		<Color>-16777216</Color>
-		<Text><![CDATA[Grid / Coverage Map]]></Text>
-		<Font>
-			<Name><![CDATA[SansSerif]]></Name>
-			<Size>14</Size>
-			<Style>1</Style>
-		</Font>
-		<Alignment>LEFT</Alignment>
-	</Text>
-	<Text>
 		<Id>1778244122946</Id>
 		<Name><![CDATA[text5]]></Name>
 		<X>450</X>
@@ -366,7 +171,7 @@
 	<Text>
 		<Id>1778244401859</Id>
 		<Name><![CDATA[text7]]></Name>
-		<X>450</X>
+		<X>250</X>
 		<Y>840</Y>
 		<Label>
 			<X>0</X>
@@ -391,7 +196,7 @@
 	<Text>
 		<Id>1778244461745</Id>
 		<Name><![CDATA[text8]]></Name>
-		<X>660</X>
+		<X>460</X>
 		<Y>840</Y>
 		<Label>
 			<X>0</X>
@@ -405,12 +210,113 @@
 		<Z>0</Z>
 		<Rotation>0.0</Rotation>
 		<Color>-16777216</Color>
-		<Text><![CDATA[Movement]]></Text>
+		<Text><![CDATA[Pheromones]]></Text>
 		<Font>
 			<Name><![CDATA[SansSerif]]></Name>
 			<Size>14</Size>
 			<Style>1</Style>
 		</Font>
 		<Alignment>LEFT</Alignment>
+	</Text>
+	<Image>
+		<Id>1776880590130</Id>
+		<Name><![CDATA[image]]></Name>
+		<X>-15</X>
+		<Y>-15</Y>
+		<Label>
+			<X>0</X>
+			<Y>-10</Y>
+		</Label>
+		<PublicFlag>true</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>false</ShowLabel>
+		<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+		<EmbeddedIcon>false</EmbeddedIcon>
+		<Z>0</Z>
+		<Width>31</Width>
+		<Height>30</Height>
+		<Rotation>0.0</Rotation>
+		<ImageFiles>
+			<ImageResourceReference>
+				<PackageName>uav_sar</PackageName>
+				<ClassName>drone.png</ClassName>
+			</ImageResourceReference>
+		</ImageFiles>
+		<OriginalSize>false</OriginalSize>
+	</Image>
+	<Text>
+		<Id>1779000002101</Id>
+		<Name><![CDATA[confidenceText]]></Name>
+		<X>-15</X>
+		<Y>0</Y>
+		<Label>
+			<X>10</X>
+			<Y>0</Y>
+		</Label>
+		<PublicFlag>true</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>false</ShowLabel>
+		<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
+		<EmbeddedIcon>false</EmbeddedIcon>
+		<Z>0</Z>
+		<Rotation>90.0</Rotation>
+		<Color>-16777216</Color>
+		<Text/>
+		<Font>
+			<Name><![CDATA[SansSerif]]></Name>
+			<Size>12</Size>
+			<Style>0</Style>
+		</Font>
+		<Alignment>CENTER</Alignment>
+	</Text>
+	<Text>
+		<Id>1778321479462</Id>
+		<Name><![CDATA[angleText]]></Name>
+		<X>-30</X>
+		<Y>0</Y>
+		<Label>
+			<X>0</X>
+			<Y>-10</Y>
+		</Label>
+		<PublicFlag>true</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>false</ShowLabel>
+		<DrawMode>SHAPE_DRAW_2D</DrawMode>
+		<EmbeddedIcon>false</EmbeddedIcon>
+		<Z>0</Z>
+		<Rotation>90.0</Rotation>
+		<Color>-65536</Color>
+		<Text/>
+		<Font>
+			<Name><![CDATA[SansSerif]]></Name>
+			<Size>12</Size>
+			<Style>0</Style>
+		</Font>
+		<Alignment>CENTER</Alignment>
+	</Text>
+	<Text>
+		<Id>1778334804559</Id>
+		<Name><![CDATA[batteryText]]></Name>
+		<X>-50</X>
+		<Y>0</Y>
+		<Label>
+			<X>0</X>
+			<Y>-10</Y>
+		</Label>
+		<PublicFlag>true</PublicFlag>
+		<PresentationFlag>true</PresentationFlag>
+		<ShowLabel>false</ShowLabel>
+		<DrawMode>SHAPE_DRAW_2D</DrawMode>
+		<EmbeddedIcon>false</EmbeddedIcon>
+		<Z>0</Z>
+		<Rotation>90.0</Rotation>
+		<Color>-16744448</Color>
+		<Text/>
+		<Font>
+			<Name><![CDATA[SansSerif]]></Name>
+			<Size>12</Size>
+			<Style>0</Style>
+		</Font>
+		<Alignment>CENTER</Alignment>
 	</Text>
 </Presentation>

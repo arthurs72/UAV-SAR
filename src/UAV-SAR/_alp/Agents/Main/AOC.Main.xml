@@ -4,18 +4,7 @@
 	<Name><![CDATA[Main]]></Name>
 	<StartupCode><![CDATA[fnPlaceVictimsGMM();
 for (UAV u : uavs) {
-	u.varUseAcoMove = varUseAcoMoveDefault;
-	u.varAcoCandidateCount = varAcoCandidateCountDefault;
-	u.varAcoStepLength = varAcoStepLengthDefault;
-	u.varAcoUavAvoidRadius = varAcoUavAvoidRadiusDefault;
-	u.varAcoMinUavSeparation = varAcoMinUavSeparationDefault;
-	u.varUavPushRate = varUavPushRateDefault;
-	u.varRandomWeight = varRandomWeightDefault;
-	u.varSensorRange = varSensorRangeDefault;
-	u.varBeliefStaleSeconds = varBeliefStaleSecondsDefault;
-}
-for (UAV u : uavs) {
-	u.varDesiredHeadingDeg = uniform(0, 360);
+	u.varBatteryLevel = uniform(20, 80);
 }]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
@@ -109,6 +98,7 @@ for (UAV u : uavs) {
 	<CurrentLevel>1776879373665</CurrentLevel>
 	<ConnectionsId>1776879373660</ConnectionsId>
 	<Variables xmlns:al="http://anylogic.com"/>
+	<Events xmlns:al="http://anylogic.com"/>
 	<Functions xmlns:al="http://anylogic.com"/>
 	<AgentLinks>
 		<AgentLink>
