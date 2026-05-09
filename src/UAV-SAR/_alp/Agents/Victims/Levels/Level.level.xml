@@ -34,14 +34,14 @@
 				<Z>0</Z>
 				<ZHeight>10</ZHeight>
 				<LineWidth>1</LineWidth>
-				<LineColor>-65536</LineColor>
+				<LineColor>-16777216</LineColor>
 				<LineMaterial>null</LineMaterial>
 				<LineStyle>SOLID</LineStyle>
 				<BeginArrowSize>1</BeginArrowSize>
 				<BeginArrowStyle>0</BeginArrowStyle>
 				<EndArrowSize>1</EndArrowSize>
 				<EndArrowStyle>0</EndArrowStyle>
-				<FillColor>-65536</FillColor>
+				<FillColor>-16777216</FillColor>
 				<FillMaterial>null</FillMaterial>
 				<Points>
 					<Point>

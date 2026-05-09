@@ -88,7 +88,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<Length>100</Length>
 		<Rotation>0</Rotation>
 		<ScaleType>BASED_ON_LENGTH</ScaleType>
-		<ModelLength>1</ModelLength>
+		<ModelLength>3</ModelLength>
 		<LengthUnits>METER</LengthUnits>
 		<Scale>10</Scale>
 		<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
@@ -100,8 +100,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1776879999910</Id>
 			<Name><![CDATA[Explore]]></Name>
-			<X>270</X>
-			<Y>100</Y>
+			<X>150</X>
+			<Y>150</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -116,8 +116,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="State" ParentState="ROOT_NODE">
 			<Id>1776880023728</Id>
 			<Name><![CDATA[Exploit]]></Name>
-			<X>670</X>
-			<Y>100</Y>
+			<X>550</X>
+			<Y>150</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -132,8 +132,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="State" ParentState="Explore" ParentStateId="1776879999910">
 			<Id>1776880228954</Id>
 			<Name><![CDATA[AcoPush]]></Name>
-			<X>370</X>
-			<Y>170</Y>
+			<X>250</X>
+			<Y>220</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -148,8 +148,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="State" ParentState="Exploit" ParentStateId="1776880023728">
 			<Id>1776880244591</Id>
 			<Name><![CDATA[AcoPull]]></Name>
-			<X>770</X>
-			<Y>170</Y>
+			<X>650</X>
+			<Y>220</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -164,8 +164,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="State" ParentState="Explore" ParentStateId="1776879999910">
 			<Id>1780000002001</Id>
 			<Name><![CDATA[Scan]]></Name>
-			<X>370</X>
-			<Y>240</Y>
+			<X>250</X>
+			<Y>290</Y>
 			<Label>
 				<X>10</X>
 				<Y>10</Y>
@@ -180,8 +180,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1776880064943</Id>
 			<Name><![CDATA[toExploitIfDetected]]></Name>
-			<X>570</X>
-			<Y>200</Y>
+			<X>450</X>
+			<Y>250</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -220,8 +220,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="Transition" ParentState="ROOT_NODE">
 			<Id>1776880073206</Id>
 			<Name><![CDATA[toExploreIfLowBatteryOrLostTarget]]></Name>
-			<X>670</X>
-			<Y>300</Y>
+			<X>550</X>
+			<Y>350</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -260,8 +260,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">
 			<Id>1776880203347</Id>
 			<Name><![CDATA[Init]]></Name>
-			<X>420</X>
-			<Y>70</Y>
+			<X>300</X>
+			<Y>120</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -286,8 +286,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
                      ParentStateId="1776879999910">
 			<Id>1776880358091</Id>
 			<Name><![CDATA[initialState]]></Name>
-			<X>420</X>
-			<Y>130</Y>
+			<X>300</X>
+			<Y>180</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -312,8 +312,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
                      ParentStateId="1776880023728">
 			<Id>1776880365171</Id>
 			<Name><![CDATA[initialState1]]></Name>
-			<X>820</X>
-			<Y>130</Y>
+			<X>700</X>
+			<Y>180</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -338,8 +338,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
                      ParentStateId="1776879999910">
 			<Id>1780000002002</Id>
 			<Name><![CDATA[toScanOnArrival]]></Name>
-			<X>390</X>
-			<Y>205</Y>
+			<X>270</X>
+			<Y>250</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -354,7 +354,7 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 				</Point>
 				<Point>
 					<X>0</X>
-					<Y>35</Y>
+					<Y>40</Y>
 				</Point>
 			</Points>
 			<IconOffset>20.0</IconOffset>
@@ -380,8 +380,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
                      ParentStateId="1776879999910">
 			<Id>1780000002003</Id>
 			<Name><![CDATA[toMoveAfterScan]]></Name>
-			<X>450</X>
-			<Y>240</Y>
+			<X>330</X>
+			<Y>290</Y>
 			<Label>
 				<X>10</X>
 				<Y>0</Y>
@@ -423,8 +423,8 @@ fnMoveToRandomWaypoint();]]></StartupCode>
 		<AgentLink>
 			<Id>1776879532568</Id>
 			<Name><![CDATA[connections]]></Name>
-			<X>20</X>
-			<Y>110</Y>
+			<X>130</X>
+			<Y>-100</Y>
 			<Label>
 				<X>15</X>
 				<Y>0</Y>

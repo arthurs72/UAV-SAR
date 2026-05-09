@@ -5,8 +5,8 @@
 		<ReturnType>void</ReturnType>
 		<Id>1777049001651</Id>
 		<Name><![CDATA[fnPlaceVictimsGMM]]></Name>
-		<X>260</X>
-		<Y>20</Y>
+		<X>910</X>
+		<Y>650</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -14,14 +14,15 @@
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>false</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
+		<Body xmlns:al="http://anylogic.com"/>
 	</Function>
 	<Function AccessType="public" StaticFunction="false">
-		<ReturnModificator>VOID</ReturnModificator>
+		<ReturnModificator>RETURNS_VALUE</ReturnModificator>
 		<ReturnType>double</ReturnType>
 		<Id>1780000004001</Id>
 		<Name><![CDATA[fnGetPheromone]]></Name>
-		<X>260</X>
-		<Y>40</Y>
+		<X>730</X>
+		<Y>650</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -29,14 +30,19 @@
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>false</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
+		<Parameter>
+			<Name><![CDATA[idx]]></Name>
+			<Type><![CDATA[int]]></Type>
+		</Parameter>
+		<Body xmlns:al="http://anylogic.com"/>
 	</Function>
 	<Function AccessType="public" StaticFunction="false">
 		<ReturnModificator>VOID</ReturnModificator>
 		<ReturnType>void</ReturnType>
 		<Id>1780000004002</Id>
 		<Name><![CDATA[fnDepositPheromone]]></Name>
-		<X>260</X>
-		<Y>60</Y>
+		<X>730</X>
+		<Y>670</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -44,5 +50,14 @@
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>false</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
+		<Parameter>
+			<Name><![CDATA[idx]]></Name>
+			<Type><![CDATA[int]]></Type>
+		</Parameter>
+		<Parameter>
+			<Name><![CDATA[amount]]></Name>
+			<Type><![CDATA[double]]></Type>
+		</Parameter>
+		<Body xmlns:al="http://anylogic.com"/>
 	</Function>
 </Functions>

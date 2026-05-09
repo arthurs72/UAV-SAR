@@ -3,8 +3,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1777051523619</Id>
 		<Name><![CDATA[varNClusters]]></Name>
-		<X>430</X>
-		<Y>20</Y>
+		<X>280</X>
+		<Y>650</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -25,8 +25,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1777051545630</Id>
 		<Name><![CDATA[varGmmWeights]]></Name>
-		<X>550</X>
-		<Y>20</Y>
+		<X>280</X>
+		<Y>670</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -47,8 +47,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1777051591040</Id>
 		<Name><![CDATA[varGmmSd]]></Name>
-		<X>700</X>
-		<Y>20</Y>
+		<X>280</X>
+		<Y>690</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -73,8 +73,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1777051640043</Id>
 		<Name><![CDATA[varGmmMargin]]></Name>
-		<X>810</X>
-		<Y>20</Y>
+		<X>280</X>
+		<Y>710</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -95,8 +95,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002001</Id>
 		<Name><![CDATA[varUseAcoMoveDefault]]></Name>
-		<X>-80</X>
-		<Y>20</Y>
+		<X>30</X>
+		<Y>650</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -117,8 +117,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002002</Id>
 		<Name><![CDATA[varAcoCandidateCountDefault]]></Name>
-		<X>-80</X>
-		<Y>45</Y>
+		<X>30</X>
+		<Y>670</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -139,8 +139,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002003</Id>
 		<Name><![CDATA[varAcoStepLengthDefault]]></Name>
-		<X>-80</X>
-		<Y>70</Y>
+		<X>30</X>
+		<Y>690</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -161,8 +161,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002004</Id>
 		<Name><![CDATA[varAcoUavAvoidRadiusDefault]]></Name>
-		<X>-80</X>
-		<Y>95</Y>
+		<X>30</X>
+		<Y>710</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -183,8 +183,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002005</Id>
 		<Name><![CDATA[varUavPushRateDefault]]></Name>
-		<X>-80</X>
-		<Y>145</Y>
+		<X>30</X>
+		<Y>730</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -205,8 +205,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002006</Id>
 		<Name><![CDATA[varRandomWeightDefault]]></Name>
-		<X>-80</X>
-		<Y>170</Y>
+		<X>30</X>
+		<Y>750</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -227,8 +227,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002007</Id>
 		<Name><![CDATA[varSensorRangeDefault]]></Name>
-		<X>-80</X>
-		<Y>195</Y>
+		<X>30</X>
+		<Y>770</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -249,8 +249,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002008</Id>
 		<Name><![CDATA[varBeliefStaleSecondsDefault]]></Name>
-		<X>-80</X>
-		<Y>220</Y>
+		<X>30</X>
+		<Y>790</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -271,8 +271,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1779000002009</Id>
 		<Name><![CDATA[varAcoMinUavSeparationDefault]]></Name>
-		<X>-80</X>
-		<Y>120</Y>
+		<X>30</X>
+		<Y>810</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -286,17 +286,15 @@
               StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
-					<Code><![CDATA[200]]></Code>
+				<Code><![CDATA[200]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
-
-	<!-- Pheromone grid introduced upstream (unioned during merge) -->
 	<Variable Class="PlainVariable">
 		<Id>1780000004010</Id>
 		<Name><![CDATA[varPheromoneGrid]]></Name>
-		<X>430</X>
-		<Y>50</Y>
+		<X>510</X>
+		<Y>650</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -305,9 +303,9 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true"
-		      Constant="false"
-		      AccessType="public"
-		      StaticVariable="false">
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
 			<Type><![CDATA[double[]]]></Type>
 			<InitialValue Class="CodeValue">
 				<Code><![CDATA[new double[200]]]></Code>
@@ -317,8 +315,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1780000004011</Id>
 		<Name><![CDATA[varPheromoneTime]]></Name>
-		<X>550</X>
-		<Y>50</Y>
+		<X>510</X>
+		<Y>670</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -327,9 +325,9 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true"
-		      Constant="false"
-		      AccessType="public"
-		      StaticVariable="false">
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
 			<Type><![CDATA[double[]]]></Type>
 			<InitialValue Class="CodeValue">
 				<Code><![CDATA[new double[200]]]></Code>
@@ -339,8 +337,8 @@
 	<Variable Class="PlainVariable">
 		<Id>1780000004012</Id>
 		<Name><![CDATA[varPheromoneEvapRate]]></Name>
-		<X>670</X>
-		<Y>50</Y>
+		<X>510</X>
+		<Y>690</Y>
 		<Label>
 			<X>10</X>
 			<Y>0</Y>
@@ -349,14 +347,13 @@
 		<PresentationFlag>true</PresentationFlag>
 		<ShowLabel>true</ShowLabel>
 		<Properties SaveInSnapshot="true"
-		      Constant="false"
-		      AccessType="public"
-		      StaticVariable="false">
+              Constant="false"
+              AccessType="public"
+              StaticVariable="false">
 			<Type><![CDATA[double]]></Type>
 			<InitialValue Class="CodeValue">
 				<Code><![CDATA[0.05]]></Code>
 			</InitialValue>
 		</Properties>
 	</Variable>
-
 </Variables>

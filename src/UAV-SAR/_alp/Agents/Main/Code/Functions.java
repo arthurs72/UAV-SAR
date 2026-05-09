@@ -90,3 +90,19 @@ for (Victims v : victims) {
 }
 /*ALCODEEND*/}
 
+double fnGetPheromone(int idx)
+{/*ALCODESTART::1780000004001*/
+if (idx < 0 || idx >= 200) return 0.0;
+double age = Math.max(0, time() - varPheromoneTime[idx]);
+return varPheromoneGrid[idx] * Math.exp(-varPheromoneEvapRate * age);
+/*ALCODEEND*/}
+
+void fnDepositPheromone(int idx,double amount)
+{/*ALCODESTART::1780000004002*/
+if (idx < 0 || idx >= 200) return;
+double age = Math.max(0, time() - varPheromoneTime[idx]);
+double current = varPheromoneGrid[idx] * Math.exp(-varPheromoneEvapRate * age);
+varPheromoneGrid[idx] = current + amount;
+varPheromoneTime[idx] = time();
+/*ALCODEEND*/}
+
