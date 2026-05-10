@@ -2,36 +2,33 @@ void eventDrawPheromones()
 {/*ALCODESTART::1778310007029*/
 pheromoneCanvas.clear();
 
+double ox = 50;
+double oy = 50;
+
 for (int row = 0; row < varGridRows; row++) {
     for (int col = 0; col < varGridCols; col++) {
-
         int idx = row * varGridCols + col;
-
         double ph = fnGetPheromone(idx);
         double intensity = Math.min(1.0, ph / 5.0);
-
-        int alpha = (int)(intensity * 200);
-        if (alpha < 3) continue;
-
-        java.awt.Color color = new java.awt.Color(0, 220, 0, alpha);
-
-        double px = col * varGridCellSize;   // canvas is already at (varGridOriginX, varGridOriginY)
-  		double py = row * varGridCellSize;
-  
-        pheromoneCanvas.fillRectangle(
-            px,
-            py,
-            varGridCellSize,
-            varGridCellSize,
-            color
-        );
+        int alpha = (int)(intensity * 220);
+        if (alpha < 5) continue;
+        int r, g, b;
+        if (intensity < 0.5) {
+            float t = (float)(intensity / 0.5);
+            r = 255; g = (int)(255 * t); b = 0;
+        } else {
+            float t = (float)((intensity - 0.5) / 0.5);
+            r = (int)(255 * (1 - t)); g = 255; b = 0;
+        }
+        double px = col * varGridCellSize;
+        double py = row * varGridCellSize;
+        pheromoneCanvas.fillRectangle(px, py, varGridCellSize, varGridCellSize,
+            new java.awt.Color(r, g, b, alpha));
     }
 }
 
-double ox = 50;
-double oy = 50;
 for (UAV u : uavs) {
-	if (u.varMovingToCharger || u.varCharging) continue;
+    if (u.varMovingToCharger || u.varCharging) continue;
     int n = Math.min(u.varAcoCandidateCount, u.varCandX.length);
     for (int i = 0; i < n; i++) {
         if (i == u.varChosenIdx) {
@@ -42,6 +39,13 @@ for (UAV u : uavs) {
                 new java.awt.Color(255, 200, 0, 130));
         }
     }
+}
+
+for (int i = 0; i < varFoundVictimCount; i++) {
+    double mx = varFoundVictimX[i] - ox;
+    double my = varFoundVictimY[i] - oy;
+    pheromoneCanvas.fillCircle(mx, my, 12, new java.awt.Color(255, 0, 0, 180));
+    pheromoneCanvas.fillCircle(mx, my, 5,  new java.awt.Color(255, 255, 255, 255));
 }
 /*ALCODEEND*/}
 

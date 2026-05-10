@@ -106,3 +106,33 @@ varPheromoneGrid[idx] = current + amount;
 varPheromoneTime[idx] = time();
 /*ALCODEEND*/}
 
+void fnMarkVictimFound(double x,double y)
+{/*ALCODESTART::1778423584943*/
+// Duplicate check
+for (int i = 0; i < varFoundVictimCount; i++) {
+    double dx = varFoundVictimX[i] - x;
+    double dy = varFoundVictimY[i] - y;
+    if (Math.sqrt(dx*dx + dy*dy) < 15) return;
+}
+// Store location
+if (varFoundVictimCount < varFoundVictimX.length) {
+    varFoundVictimX[varFoundVictimCount] = x;
+    varFoundVictimY[varFoundVictimCount] = y;
+    varFoundVictimCount++;
+}
+// Reset pheromone within 250 units to attract UAVs back to this area
+double radius = 175;
+for (int row = 0; row < varGridRows; row++) {
+    for (int col = 0; col < varGridCols; col++) {
+        double cellCx = varGridOriginX + (col + 0.5) * varGridCellSize;
+        double cellCy = varGridOriginY + (row + 0.5) * varGridCellSize;
+        double dist = Math.sqrt((cellCx - x)*(cellCx - x) + (cellCy - y)*(cellCy - y));
+        if (dist <= radius) {
+            int idx = row * varGridCols + col;
+            varPheromoneGrid[idx] = 0;
+            varPheromoneTime[idx] = time();
+        }
+    }
+}
+/*ALCODEEND*/}
+

@@ -106,7 +106,7 @@ double fnCellFreshness(int idx)
 {/*ALCODESTART::1780000003020*/
 if (idx < 0 || idx >= main.varGridCols * main.varGridRows) return 0.0;
 double t = varCellLastSenseTime[idx];
-if (t < 0) return 0.0;
+if (t <= 0) return 0.0;
 double age = time() - t;
 return Math.max(0.0, 1.0 - age / varBeliefStaleSeconds);
 /*ALCODEEND*/}
@@ -159,6 +159,9 @@ for (int row = rowMin; row <= rowMax; row++) {
 
 void fnPickWaypoint()
 {/*ALCODESTART::1780000005010*/
+traceln("UAV " + getIndex() + " fnPickWaypoint: returnFlag=" + varReturnToLastLocation +
+    ", lastCritical=(" + varLastCriticalX + "," + varLastCriticalY + 
+    "), localSearch=" + varLocalSearchMode);
 int n = Math.max(1, varAcoCandidateCount);
 double step = varAcoStepLength;
 
@@ -175,6 +178,49 @@ if (main != null && main.spaceRelease != null) {
     maxY = main.spaceRelease.getY() + main.spaceRelease.getHeight() - margin;
 }
 
+// PRIORITY 1: Local search - fly directly to victim if outside radius
+if (varLocalSearchMode && varLocalSearchCenterX >= 0) {
+    double distToCenter = Math.sqrt(
+        (getX() - varLocalSearchCenterX) * (getX() - varLocalSearchCenterX) +
+        (getY() - varLocalSearchCenterY) * (getY() - varLocalSearchCenterY)
+    );
+    if (distToCenter > varLocalSearchRadius) {
+        double tx = Math.max(minX, Math.min(maxX, varLocalSearchCenterX));
+        double ty = Math.max(minY, Math.min(maxY, varLocalSearchCenterY));
+        varCandX[0] = tx;
+        varCandY[0] = ty;
+        varChosenIdx = 0;
+        varDesiredHeadingDeg = Math.toDegrees(Math.atan2(
+            varLocalSearchCenterY - getY(),
+            varLocalSearchCenterX - getX()
+        ));
+        return;
+    }
+}
+
+// PRIORITY 2: Return to last critical location (no victim spotted en route home)
+if (varReturnToLastLocation && varLastCriticalX >= 0) {
+    double distToLast = Math.sqrt(
+        (getX() - varLastCriticalX) * (getX() - varLastCriticalX) +
+        (getY() - varLastCriticalY) * (getY() - varLastCriticalY)
+    );
+    if (distToLast > 50) {
+        double tx = Math.max(minX, Math.min(maxX, varLastCriticalX));
+        double ty = Math.max(minY, Math.min(maxY, varLastCriticalY));
+        varCandX[0] = tx;
+        varCandY[0] = ty;
+        varChosenIdx = 0;
+        varDesiredHeadingDeg = Math.toDegrees(Math.atan2(
+            varLastCriticalY - getY(),
+            varLastCriticalX - getX()
+        ));
+        return;
+    } else {
+        varReturnToLastLocation = false;
+    }
+}
+
+// PRIORITY 3: Normal ACO with optional local search boost
 double[] candX = new double[n];
 double[] candY = new double[n];
 double[] scores = new double[n];
@@ -191,6 +237,17 @@ for (int i = 0; i < n; i++) {
     double tauInv = 1.0 / (1.0 + tau);
     double eta = Math.max(1e-6, 1.0 - fnCellFreshness(idx));
     double score = Math.pow(tauInv, varAcoAlpha) * Math.pow(eta, varAcoBeta);
+
+    if (varLocalSearchMode && varLocalSearchCenterX >= 0) {
+        double distCand = Math.sqrt(
+            (cx - varLocalSearchCenterX) * (cx - varLocalSearchCenterX) +
+            (cy - varLocalSearchCenterY) * (cy - varLocalSearchCenterY)
+        );
+        if (distCand <= varLocalSearchRadius) {
+            score *= 5.0;
+        }
+    }
+
     if (main != null) {
         for (UAV other : main.uavs) {
             if (other == this) continue;
@@ -215,6 +272,13 @@ if (totalScore <= 0) {
     }
 }
 
+if (varLocalSearchMode) {
+    varLocalSearchStepsLeft--;
+    if (varLocalSearchStepsLeft <= 0) {
+        varLocalSearchMode = false;
+    }
+}
+
 varAcoCandidateCount = n;
 varChosenIdx = chosenIdx;
 for (int i = 0; i < n && i < varCandX.length; i++) {
@@ -231,5 +295,21 @@ varDesiredHeadingDeg = Math.toDegrees(Math.atan2(
 double function()
 {/*ALCODESTART::1778331635115*/
 
+/*ALCODEEND*/}
+
+double fnConfirmVictim()
+{/*ALCODESTART::1778423980875*/
+if (varTargetX >= 0 && varTargetY >= 0) {
+    main.fnMarkVictimFound(varTargetX, varTargetY);
+    varVictimsConfirmed++;
+    varLocalSearchMode = true;
+    varLocalSearchCenterX = varTargetX;
+    varLocalSearchCenterY = varTargetY;
+    varLocalSearchStepsLeft = 6;
+    varReturnToLastLocation = false;
+}
+varTargetConfidence = 0.0;
+varTargetX = -1;
+varTargetY = -1;
 /*ALCODEEND*/}
 

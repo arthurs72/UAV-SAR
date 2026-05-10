@@ -134,8 +134,7 @@ moveTo(varCandX[varChosenIdx], varCandY[varChosenIdx], varSpeed);</EntryAction>
 			<ShowLabel>true</ShowLabel>
 			<Properties Width="300" Height="300">
 				<EntryAction>varExploring = false;
-setSpeed(varSpeed);
-moveTo(varTargetX, varTargetY);</EntryAction>
+fnConfirmVictim();</EntryAction>
 				<FillColor>0</FillColor>
 			</Properties>
 		</StatechartElement>
@@ -398,7 +397,12 @@ batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1778334608116" Target="1778334608116" Trigger="rate">
-				<Action>varBatteryLevel = Math.max(0, varBatteryLevel - varBatteryDepletionRate * 0.5);
+				<Action>fnSenseNow();
+fnSenseNowGrid();
+if (varTargetConfidence &gt;= varDetectionThreshold) {
+    fnConfirmVictim();
+}
+varBatteryLevel = Math.max(0, varBatteryLevel - varBatteryDepletionRate * 0.5);
 batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
@@ -554,6 +558,9 @@ batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1776879999910" Target="1778334562841" Trigger="condition">
+				<Action>varLastCriticalX = getX();
+varLastCriticalY = getY();
+varReturnToLastLocation = true;</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
@@ -598,6 +605,9 @@ batteryText.setText(String.format("%.0f%%", varBatteryLevel));</Action>
 			</Points>
 			<IconOffset>20.0</IconOffset>
 			<Properties Source="1776880023728" Target="1778334562841" Trigger="condition">
+				<Action>varLastCriticalX = getX();
+varLastCriticalY = getY();
+varReturnToLastLocation = true;</Action>
 				<Timeout Class="CodeUnitValue">
 					<Code><![CDATA[1]]></Code>
 					<Unit Class="TimeUnits">SECOND</Unit>
