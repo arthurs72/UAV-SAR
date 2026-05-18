@@ -2571,6 +2571,36 @@ if (!varAllVictimsFound && varFoundVictimCount >= victims.size()) {
 						</InitialValue>
 					</Properties>
 				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1779113553646</Id>
+					<Name><![CDATA[varQueuedTargetX]]></Name>
+					<X>60</X><Y>950</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[-1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
+				<Variable Class="PlainVariable">
+					<Id>1779113573994</Id>
+					<Name><![CDATA[varQueuedTargetY]]></Name>
+					<X>60</X><Y>950</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
+						<Type><![CDATA[double]]></Type>        
+						<InitialValue Class="CodeValue">
+							<Code><![CDATA[-1]]></Code>
+						</InitialValue>
+					</Properties>
+				</Variable>
 			</Variables>
 			<StatechartElements>
 				<StatechartElement Class="State" ParentState="ROOT_NODE">
@@ -2662,7 +2692,7 @@ moveTo(880, 460, varSpeed);]]></EntryAction>
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="TimeUnits"><![CDATA[SECOND]]></Unit>
 						</Timeout>
-						<Condition><![CDATA[varTargetConfidence >= varDetectionThreshold]]></Condition>
+						<Condition><![CDATA[varTargetConfidence >= varDetectionThreshold && !varLocalSearchMode]]></Condition>
 						<Rate Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
 							<Unit Class="RateUnits"><![CDATA[PER_SECOND]]></Unit>
@@ -2742,9 +2772,14 @@ fnPickWaypoint();]]></Action>
 					<Properties Source="1776879999910" Target="1776879999910" Trigger="rate">
 						<Action><![CDATA[fnSenseNow();
 fnSenseNowGrid();
+if (varLocalSearchMode && varTargetConfidence >= varDetectionThreshold
+        && varQueuedTargetX < 0) {
+    varQueuedTargetX = varTargetX;
+    varQueuedTargetY = varTargetY;
+}
 varBatteryLevel = Math.max(0, varBatteryLevel - varBatteryDepletionRate * 0.5);
 if (batteryText != null) {
-	batteryText.setText(String.format("%.0f%%", varBatteryLevel));
+    batteryText.setText(String.format("%.0f%%", varBatteryLevel));
 }]]></Action>
 						<Timeout Class="CodeUnitValue">
 							<Code><![CDATA[1]]></Code>
@@ -3336,9 +3371,16 @@ if (varLocalSearchMode && varLocalSearchCenterX >= 0) {
     varChosenIdx = 0;
     varDesiredHeadingDeg = Math.toDegrees(Math.atan2(ty - getY(), tx - getX()));
     varLocalSearchStepsLeft--;
-    if (varLocalSearchStepsLeft <= 0) {
-        varLocalSearchMode = false;
-    }
+	if (varLocalSearchStepsLeft <= 0) {
+    varLocalSearchMode = false;
+    	if (varQueuedTargetX >= 0) {
+        	varTargetX      = varQueuedTargetX;
+        	varTargetY      = varQueuedTargetY;
+        	varTargetConfidence = 1.0;
+        	varQueuedTargetX = -1;
+        	varQueuedTargetY = -1;
+    	}
+	}	
     return;
 }
 
