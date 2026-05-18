@@ -26,9 +26,9 @@
 		</Frame>
 		<Database>
 			<Id>1776879373655</Id>
-			<Logging>false</Logging>
+			<Logging>true</Logging>
 			<AutoExport>false</AutoExport>
-			<ShutdownCompact>false</ShutdownCompact>
+			<ShutdownCompact>true</ShutdownCompact>
 			<ImportSettings/>
 			<ExportSettings/>
 		</Database>

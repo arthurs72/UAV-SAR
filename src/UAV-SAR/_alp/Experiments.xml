@@ -1,19 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Experiments>
+	<ParamVariationExperiment ActiveObjectClassId="1776879373659">
+		<Id>1778831711605</Id>
+		<Name><![CDATA[ExpParamSweep]]></Name>
+		<CommandLineArguments/>
+		<InitialSetupCode>new java.io.File("experiments").mkdirs();
+
+long runTime;
+java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMddHHmmssSSS");
+
+// Format the initial date string (Outputs exactly 17 digits)
+String runId = "";
+String expDir = "";
+
+// Synchronize on the experiment class object to prevent thread collision
+synchronized(this.getClass()) {
+    runTime = java.lang.System.currentTimeMillis();
+    runId = sdf.format(new java.util.Date(runTime));
+    expDir = "experiments/" + runId;
+
+    // Increment and sleep if the directory already exists
+    while (new java.io.File(expDir).exists()) {
+        try {
+            java.lang.Thread.sleep(1);
+        } catch (Exception e) {}
+        runTime = java.lang.System.currentTimeMillis();
+        runId = sdf.format(new java.util.Date(runTime));
+        expDir = "experiments/" + runId;
+    }
+    
+    // Create the directory immediately while inside the locked block
+    new java.io.File(expDir).mkdirs();
+}
+
+System.setProperty("uavsar.exp.dir", expDir);
+
+try {
+    java.io.FileWriter fw = new java.io.FileWriter(expDir + "/run_summary.csv", false);
+    fw.write("seed,sensorRange,acoCandidateCount,acoStepLength,acoAlpha,acoBeta,converged,convergenceTime,victimsFound\n");
+    fw.close();
+
+    java.io.FileWriter fw2 = new java.io.FileWriter(expDir + "/victim_log.csv", false);
+    fw2.write("seed,sensorRange,acoCandidateCount,acoStepLength,acoAlpha,acoBeta,victimIdx,uavIdx,foundTime,x,y\n");
+    fw2.close();
+} catch (Exception e) {
+    traceln("Header write error: " + e.getMessage());
+}</InitialSetupCode>
+		<MaximumMemory>512</MaximumMemory>
+		<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
+		<CustomGeneratorCode>new Random()</CustomGeneratorCode>
+		<SeedValue>1</SeedValue>
+		<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
+		<VmArgs/>
+		<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
+		<AllowParallelEvaluations>false</AllowParallelEvaluations>
+		<UseFreeformParameters>false</UseFreeformParameters>
+		<NumberOfRuns>10</NumberOfRuns>
+		<FreeformParamValue>
+			<Id>1778832274427</Id>
+		</FreeformParamValue>
+		<FreeformParamValue>
+			<Id>1778832333342</Id>
+		</FreeformParamValue>
+		<FreeformParamValue>
+			<Id>1778832354292</Id>
+		</FreeformParamValue>
+		<FreeformParamValue>
+			<Id>1778832377031</Id>
+		</FreeformParamValue>
+		<FreeformParamValue>
+			<Id>1778832391383</Id>
+		</FreeformParamValue>
+		<FreeformParamValue>
+			<Id>1778832407263</Id>
+		</FreeformParamValue>
+		<RangeVariationParamValue>
+			<Id>1778832274427</Id>
+			<Type><![CDATA[RANGE]]></Type>
+			<From Class="CodeValue">
+				<Code><![CDATA[100]]></Code>
+			</From>
+			<To Class="CodeValue">
+				<Code><![CDATA[100]]></Code>
+			</To>
+			<Step Class="CodeValue">
+				<Code><![CDATA[25]]></Code>
+			</Step>
+		</RangeVariationParamValue>
+		<RangeVariationParamValue>
+			<Id>1778832333342</Id>
+			<Type><![CDATA[RANGE]]></Type>
+			<Expression Class="CodeValue">
+				<Code><![CDATA[20]]></Code>
+			</Expression>
+			<From Class="CodeValue">
+				<Code><![CDATA[12]]></Code>
+			</From>
+			<To Class="CodeValue">
+				<Code><![CDATA[36]]></Code>
+			</To>
+			<Step Class="CodeValue">
+				<Code><![CDATA[6]]></Code>
+			</Step>
+		</RangeVariationParamValue>
+		<RangeVariationParamValue>
+			<Id>1778832354292</Id>
+			<Type><![CDATA[RANGE]]></Type>
+			<From Class="CodeValue">
+				<Code><![CDATA[50]]></Code>
+			</From>
+			<To Class="CodeValue">
+				<Code><![CDATA[150]]></Code>
+			</To>
+			<Step Class="CodeValue">
+				<Code><![CDATA[25]]></Code>
+			</Step>
+		</RangeVariationParamValue>
+		<RangeVariationParamValue>
+			<Id>1778832377031</Id>
+			<Type><![CDATA[RANGE]]></Type>
+			<From Class="CodeValue">
+				<Code><![CDATA[0.5]]></Code>
+			</From>
+			<To Class="CodeValue">
+				<Code><![CDATA[2.5]]></Code>
+			</To>
+			<Step Class="CodeValue">
+				<Code><![CDATA[0.5]]></Code>
+			</Step>
+		</RangeVariationParamValue>
+		<RangeVariationParamValue>
+			<Id>1778832391383</Id>
+			<Type><![CDATA[RANGE]]></Type>
+			<From Class="CodeValue">
+				<Code><![CDATA[1.0]]></Code>
+			</From>
+			<To Class="CodeValue">
+				<Code><![CDATA[4.0]]></Code>
+			</To>
+			<Step Class="CodeValue">
+				<Code><![CDATA[0.5]]></Code>
+			</Step>
+		</RangeVariationParamValue>
+		<RangeVariationParamValue>
+			<Id>1778832407263</Id>
+			<Type><![CDATA[RANGE]]></Type>
+			<Expression Class="CodeValue">
+				<Code><![CDATA[40]]></Code>
+			</Expression>
+			<From Class="CodeValue">
+				<Code><![CDATA[40]]></Code>
+			</From>
+			<To Class="CodeValue">
+				<Code><![CDATA[50]]></Code>
+			</To>
+			<Step Class="CodeValue">
+				<Code><![CDATA[1]]></Code>
+			</Step>
+		</RangeVariationParamValue>
+		<ModelTimeProperties>
+			<StopOption>Stop at specified time</StopOption>
+			<InitialDate>1776816000000</InitialDate>
+			<InitialTime>0.0</InitialTime>
+			<FinalDate>1779408000000</FinalDate>
+			<FinalTime>100.0</FinalTime>
+		</ModelTimeProperties>
+		<PresentationProperties>
+			<EnableZoomAndPanning>true</EnableZoomAndPanning>
+			<Title>UAV-SAR : ExpParamSweep</Title>
+			<EnableDeveloperPanel>true</EnableDeveloperPanel>
+			<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
+		</PresentationProperties>
+		<ReplicationsProperties>
+			<UseReplication>false</UseReplication>
+			<FixedReplicationsNumber>true</FixedReplicationsNumber>
+			<ReplicationPerIteration>10</ReplicationPerIteration>
+			<MinimumReplication>2</MinimumReplication>
+			<MaximumReplication>10</MaximumReplication>
+			<ConfidenceLevel>LEVEL_80</ConfidenceLevel>
+			<ErrorPercent>0.5</ErrorPercent>
+			<ExpressionForConfidenceComputation>0</ExpressionForConfidenceComputation>
+		</ReplicationsProperties>
+	</ParamVariationExperiment>
 	<SimulationExperiment ActiveObjectClassId="1776879373659">
-		<Id>1776879373669</Id>
+		<Id>1778832693034</Id>
 		<Name><![CDATA[Simulation]]></Name>
 		<CommandLineArguments/>
 		<MaximumMemory>512</MaximumMemory>
 		<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>
 		<CustomGeneratorCode>new Random()</CustomGeneratorCode>
-		<SeedValue>500000</SeedValue>
+		<SeedValue>1</SeedValue>
 		<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>
 		<VmArgs/>
 		<LoadRootFromSnapshot>false</LoadRootFromSnapshot>
 		<Presentation>
 			<Text>
-				<Id>1776879373673</Id>
+				<Id>1778832693036</Id>
 				<Name><![CDATA[text]]></Name>
 				<X>50</X>
 				<Y>30</Y>
@@ -38,7 +220,26 @@
 				<Alignment>LEFT</Alignment>
 			</Text>
 		</Presentation>
-		<Parameters/>
+		<Parameters>
+			<Parameter>
+				<ParameterName>varSensorRange</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>varAcoCandidateCount</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>varAcoStepLength</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>varAcoAlpha</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>varAcoBeta</ParameterName>
+			</Parameter>
+			<Parameter>
+				<ParameterName>varSeed</ParameterName>
+			</Parameter>
+		</Parameters>
 		<PresentationProperties>
 			<EnableZoomAndPanning>true</EnableZoomAndPanning>
 			<ExecutionMode>realTimeScaled</ExecutionMode>

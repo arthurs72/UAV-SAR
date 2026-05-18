@@ -86,13 +86,14 @@
 		<Length>100</Length>
 		<Rotation>0</Rotation>
 		<ScaleType>BASED_ON_LENGTH</ScaleType>
-		<ModelLength>0.5</ModelLength>
+		<ModelLength>2</ModelLength>
 		<LengthUnits>METER</LengthUnits>
 		<Scale>10</Scale>
 		<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
 	</ScaleRuler>
 	<CurrentLevel>1777022364717</CurrentLevel>
 	<ConnectionsId>1777022364712</ConnectionsId>
+	<Variables xmlns:al="http://anylogic.com"/>
 	<AgentLinks>
 		<AgentLink>
 			<Id>1777022364712</Id>

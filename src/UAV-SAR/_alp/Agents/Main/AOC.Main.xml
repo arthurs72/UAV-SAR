@@ -2,7 +2,21 @@
 <ActiveObjectClass>
 	<Id>1776879373659</Id>
 	<Name><![CDATA[Main]]></Name>
-	<StartupCode><![CDATA[fnPlaceVictimsGMM();]]></StartupCode>
+	<StartupCode><![CDATA[// Seed first so all randomness in this run is reproducible
+getDefaultRandomGenerator().setSeed(varSeed);
+
+// Push experiment parameters down to every UAV
+for (UAV u : uavs) {
+    u.varSensorRange       = varSensorRange;
+    u.varAcoCandidateCount = varAcoCandidateCount;
+    u.varAcoStepLength     = varAcoStepLength;
+    u.varAcoAlpha          = varAcoAlpha;
+    u.varAcoBeta           = varAcoBeta;
+    u.varBatteryLevel      = uniform(20, 80);
+}
+
+// Place victims after seed is set so placement is reproducible
+fnPlaceVictimsGMM();]]></StartupCode>
 	<Generic>false</Generic>
 	<GenericParameter>
 		<Id>1776879373664</Id>
@@ -49,7 +63,7 @@
 		</StepDurationCode>
 		<SpaceType>CONTINUOUS</SpaceType>
 		<WidthCode>1000</WidthCode>
-		<HeightCode>1000</HeightCode>
+		<HeightCode>500</HeightCode>
 		<ZHeightCode>0</ZHeightCode>
 		<ColumnsCountCode>100</ColumnsCountCode>
 		<RowsCountCode>100</RowsCountCode>
@@ -79,7 +93,7 @@
 		<Id>1776879373662</Id>
 		<Name><![CDATA[scale]]></Name>
 		<X>0</X>
-		<Y>-150</Y>
+		<Y>-130</Y>
 		<PublicFlag>false</PublicFlag>
 		<PresentationFlag>false</PresentationFlag>
 		<ShowLabel>false</ShowLabel>
@@ -87,7 +101,7 @@
 		<Length>100</Length>
 		<Rotation>0</Rotation>
 		<ScaleType>BASED_ON_LENGTH</ScaleType>
-		<ModelLength>1</ModelLength>
+		<ModelLength>5</ModelLength>
 		<LengthUnits>METER</LengthUnits>
 		<Scale>10</Scale>
 		<InheritedFromParentAgentType>true</InheritedFromParentAgentType>
@@ -95,13 +109,14 @@
 	<CurrentLevel>1776879373665</CurrentLevel>
 	<ConnectionsId>1776879373660</ConnectionsId>
 	<Variables xmlns:al="http://anylogic.com"/>
+	<Events xmlns:al="http://anylogic.com"/>
 	<Functions xmlns:al="http://anylogic.com"/>
 	<AgentLinks>
 		<AgentLink>
 			<Id>1776879373660</Id>
 			<Name><![CDATA[connections]]></Name>
 			<X>20</X>
-			<Y>-100</Y>
+			<Y>-90</Y>
 			<Label>
 				<X>15</X>
 				<Y>0</Y>
